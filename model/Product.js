@@ -13,6 +13,10 @@ const productSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    productimageurl: {
+        type: String,
+        required: true,
+    },
     badges: [
         {
             text: {

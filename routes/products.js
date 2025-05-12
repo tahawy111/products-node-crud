@@ -4,16 +4,21 @@ import Product from "../model/Product.js";
 const router = Router();
 
 // Define your routes here
-router.get("/", (req, res) => {
-  res.render("index");
+router.get("/", async (req, res) => {
+
+  const products = await Product.find();
+  console.log(products);
+  
+
+  res.render("index", { products });
 });
-router.get("/add-product", (req, res) => {
+router.get("/add-product", async (req, res) => {
   res.render("add-product");
 });
-router.get("/view-product", (req, res) => {
+router.get("/view-product", async (req, res) => {
   res.render("view-product");
 });
-router.get("/edit-product", (req, res) => {
+router.get("/edit-product", async (req, res) => {
   res.render("edit-product");
 });
 
