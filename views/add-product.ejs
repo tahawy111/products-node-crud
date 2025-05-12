@@ -34,42 +34,32 @@
         <div class="w-full max-w-2xl bg-white p-8 rounded-xl shadow-2xl">
             <h1 class="text-3xl font-bold text-center mb-8 text-gray-700">إضافة منتج جديد</h1>
 
-            <form action="#" method="POST" class="space-y-6">
+            <form action="/add-product" method="POST" class="space-y-6">
                 <div>
-                    <label for="product-name" class="block text-sm font-medium text-gray-700 mb-1">اسم المنتج</label>
-                    <input type="text" name="product-name" id="product-name" required
+                    <label for="productname" class="block text-sm font-medium text-gray-700 mb-1">اسم المنتج</label>
+                    <input type="text" name="productname" id="productname" required
                            class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
                 </div>
 
                 <div>
-                    <label for="product-price" class="block text-sm font-medium text-gray-700 mb-1">السعر (ج.م)</label>
-                    <input type="number" name="product-price" id="product-price" step="0.01" required
+                    <label for="productprice" class="block text-sm font-medium text-gray-700 mb-1">السعر (ج.م)</label>
+                    <input type="number" name="productprice" id="productprice" step="0.01" required
                            class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
                 </div>
 
                 <div>
-                    <label for="product-description" class="block text-sm font-medium text-gray-700 mb-1">وصف المنتج</label>
-                    <textarea name="product-description" id="product-description" rows="4" required
+                    <label for="productdescription" class="block text-sm font-medium text-gray-700 mb-1">وصف المنتج</label>
+                    <textarea name="productdescription" id="productdescription" rows="4" required
                               class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"></textarea>
                 </div>
 
                 <div>
-                    <label for="product-image-url" class="block text-sm font-medium text-gray-700 mb-1">رابط صورة المنتج</label>
-                    <input type="url" name="product-image-url" id="product-image-url" placeholder="https://example.com/image.jpg"
+                    <label for="productimageurl" class="block text-sm font-medium text-gray-700 mb-1">رابط صورة المنتج</label>
+                    <input type="url" name="productimageurl" id="productimageurl" placeholder="https://example.com/image.jpg"
                            class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
                      <p class="mt-1 text-xs text-gray-500">أو اترك فارغاً لاستخدام صورة افتراضية.</p>
                 </div>
                 
-                <div>
-                    <label for="product-category" class="block text-sm font-medium text-gray-700 mb-1">الفئة</label>
-                    <select id="product-category" name="product-category"
-                            class="mt-1 block w-full px-4 py-3 border border-gray-300 bg-white rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
-                        <option>إلكترونيات</option>
-                        <option>ملابس</option>
-                        <option>أثاث</option>
-                        <option>أخرى</option>
-                    </select>
-                </div>
 
                                <!-- Badges Section Start -->
                 <div class="border-t border-b border-gray-200 py-6 space-y-4">
@@ -86,7 +76,7 @@
                         <!-- سيبقى هذا الحقل الأول ظاهرًا دائمًا أو يتم إنشاؤه مبدئيًا -->
                         <div class="badge-item grid grid-cols-1 sm:grid-cols-12 gap-x-4 gap-y-2 items-center p-3 border border-gray-200 rounded-lg bg-gray-50">
                             <div class="sm:col-span-5">
-                                <label for="product-badge-text-0" class="sr-only">نص الشارة</label>
+                                <label for="productbadgetext0" class="sr-only">نص الشارة</label>
                                 <input type="text" name="badges[0][text]" id="product-badge-text-0" placeholder="نص الشارة (مثال: جديد)"
                                        class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 transition-all text-sm">
                             </div>
