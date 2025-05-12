@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر المنتجات - الرئيسية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* يمكنك إضافة أي خطوط مخصصة هنا إذا أردت */
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-gray-800">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors">
+                <i class="fas fa-store mr-2"></i>متجر المنتجات
+            </a>
+            <div>
+                <a href="/add-product" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-transform transform hover:scale-105">
+                    <i class="fas fa-plus-circle mr-1"></i> إضافة منتج جديد
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-6 py-10 mb-16">
+        <h1 class="text-4xl font-bold text-center mb-12 text-gray-700">منتجاتنا المميزة</h1>
+
+        <!-- Products Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <!-- Product Card - Example 1 -->
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
+                <img src="https://i.imgur.com/U16c58j.jpeg" alt="صورة المنتج" class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold mb-2 text-gray-800">منتج أنيق وعصري</h2>
+                    <p class="text-gray-600 text-sm mb-4">وصف قصير جذاب للمنتج يبرز أهم مميزاته وتصميمه الفريد.</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-3xl font-bold text-blue-600">199 ج.م</span>
+                        <span class="text-xs text-green-500 bg-green-100 px-2 py-1 rounded-full font-semibold">متوفر</span>
+                    </div>
+                    <div class="flex space-x-2 space-x-reverse">
+                        <a href="/view-product" class="flex-1 text-center bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-colors">
+                            <i class="fas fa-eye mr-1"></i> عرض
+                        </a>
+                        <a href="/edit-product" class="flex-1 text-center bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-colors">
+                            <i class="fas fa-edit mr-1"></i> تعديل
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card - Example 2 (مختلف قليلاً) -->
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300 ease-in-out">
+                <img src="https://i.imgur.com/MVnjV9B.jpeg" alt="صورة المنتج" class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <h2 class="text-2xl font-bold mb-2 text-gray-800">منتج عالي الجودة</h2>
+                    <p class="text-gray-600 text-sm mb-4">هذا المنتج يتميز بجودته العالية ومواده المتينة التي تضمن استدامته.</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-3xl font-bold text-blue-600">249 ج.م</span>
+                        <span class="text-xs text-red-500 bg-red-100 px-2 py-1 rounded-full font-semibold">كمية محدودة</span>
+                    </div>
+                     <div class="flex space-x-2 space-x-reverse">
+                        <a href="/view-product" class="flex-1 text-center bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-colors">
+                            <i class="fas fa-eye mr-1"></i> عرض
+                        </a>
+                        <a href="/edit-product" class="flex-1 text-center bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-colors">
+                            <i class="fas fa-edit mr-1"></i> تعديل
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- يمكنك إضافة المزيد من البطاقات هنا -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center p-6 mt-12 fixed bottom-0 w-full">
+        <p>© 2023 متجر المنتجات. جميع الحقوق محفوظة.</p>
+    </footer>
+
+</body>
+</html>
