@@ -1,172 +1,281 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>تعديل المنتج</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
-        body {
-            font-family: 'Cairo', sans-serif;
-        }
+      @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap");
+      body {
+        font-family: "Cairo", sans-serif;
+      }
     </style>
-</head>
-<body class="bg-slate-100 text-gray-800">
-
+  </head>
+  <body class="bg-slate-100 text-gray-800">
     <!-- Navbar -->
     <nav class="bg-white shadow-md sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="/" class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors">
-                <i class="fas fa-store mr-2"></i>متجر المنتجات
-            </a>
-            <div>
-                <a href="/" class="text-gray-600 hover:text-blue-600 font-semibold py-2 px-4 rounded-lg transition-colors">
-                    <i class="fas fa-arrow-left mr-1"></i> العودة للرئيسية
-                </a>
-            </div>
+      <div
+        class="container mx-auto px-6 py-3 flex justify-between items-center"
+      >
+        <a
+          href="/"
+          class="text-2xl font-bold text-blue-600 hover:text-blue-700 transition-colors"
+        >
+          <i class="fas fa-store mr-2"></i>متجر المنتجات
+        </a>
+        <div>
+          <a
+            href="/"
+            class="text-gray-600 hover:text-blue-600 font-semibold py-2 px-4 rounded-lg transition-colors"
+          >
+            <i class="fas fa-arrow-left mr-1"></i> العودة للرئيسية
+          </a>
         </div>
+      </div>
     </nav>
 
     <!-- Main Content -->
     <div class="container mx-auto px-6 py-10 flex justify-center mb-20">
-        <div class="w-full max-w-2xl bg-white p-8 rounded-xl shadow-2xl">
-            <h1 class="text-3xl font-bold text-center mb-8 text-gray-700">تعديل بيانات المنتج</h1>
+      <div class="w-full max-w-2xl bg-white p-8 rounded-xl shadow-2xl">
+        <h1 class="text-3xl font-bold text-center mb-8 text-gray-700">
+          تعديل بيانات المنتج
+        </h1>
 
-            <form action="#" method="POST" class="space-y-6">
-                <!-- يجب ملء هذه الحقول ببيانات المنتج الفعلية عند الربط بالـ Backend -->
-                <div>
-                    <label for="product-name" class="block text-sm font-medium text-gray-700 mb-1">اسم المنتج</label>
-                    <input type="text" name="product-name" id="product-name" value="منتج أنيق وعصري (مثال)" required
-                           class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
+        <form action="/edit-product/<%= product.id %>" method="POST" class="space-y-6">
+          <!-- يجب ملء هذه الحقول ببيانات المنتج الفعلية عند الربط بالـ Backend -->
+          <div>
+            <label
+              for="productname"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >اسم المنتج</label
+            >
+            <input
+              type="text"
+              name="productname"
+              id="productname"
+              value="<%= product.productname %>"
+              required
+              class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+            />
+          </div>
+
+          <div>
+            <label
+              for="productprice"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >السعر (ج.م)</label
+            >
+            <input
+              type="number"
+              name="productprice"
+              id="productprice"
+              step="0.01"
+              value="<%= product.productprice %>"
+              required
+              class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+            />
+          </div>
+
+          <div>
+            <label
+              for="productdescription"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >وصف المنتج</label
+            >
+            <textarea
+              name="productdescription"
+              id="productdescription"
+              rows="4"
+              required
+              class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+            >
+<%= product.productdescription %></textarea
+            >
+          </div>
+
+          <div>
+            <label
+              for="productimageurl"
+              class="block text-sm font-medium text-gray-700 mb-1"
+              >رابط صورة المنتج</label
+            >
+            <input
+              type="url"
+              name="productimageurl"
+              id="productimageurl"
+              value="<%= product.productimageurl %>"
+              class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+            />
+          </div>
+
+          <!-- Badges Section Start -->
+          <div class="border-t border-b border-gray-200 py-6 space-y-4">
+            <div class="flex justify-between items-center">
+              <h3 class="text-lg font-medium leading-6 text-gray-900">
+                الشارات (اختياري)
+              </h3>
+              <button
+                type="button"
+                id="addBadgeButton"
+                class="bg-sky-500 hover:bg-sky-600 text-white text-sm font-semibold py-2 px-3 rounded-lg shadow-md transition-colors"
+              >
+                <i class="fas fa-plus mr-1"></i> إضافة شارة
+              </button>
+            </div>
+
+            <div id="badgesContainer" class="space-y-4">
+            <% product.badges.forEach((badge, index) => { %>
+
+              <div
+                class="badge-item grid grid-cols-1 sm:grid-cols-12 gap-x-4 gap-y-2 items-center p-3 border border-gray-200 rounded-lg bg-gray-50"
+              >
+                <div class="sm:col-span-5">
+                  <label for="product-badge-text-0" class="sr-only"
+                    >نص الشارة</label
+                  >
+                  <input
+                    type="text"
+                    value="<%= badge.text %>"
+                    name="badges[<%= index %>][text]"
+                    id="product-badge-text-<%= index %>"
+                    placeholder="نص الشارة (مثال: جديد)"
+                    class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 transition-all text-sm"
+                  />
                 </div>
-
-                <div>
-                    <label for="product-price" class="block text-sm font-medium text-gray-700 mb-1">السعر (ج.م)</label>
-                    <input type="number" name="product-price" id="product-price" step="0.01" value="199.00" required
-                           class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
+                <div class="sm:col-span-5">
+                  <label for="product-badge-color-<%= index %>" class="sr-only"
+                    >لون الشارة</label
+                  >
+                  <select
+                    name="badges[<%= index %>][color]"
+                    id="product-badge-color-<%= index %>"
+                    class="block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 transition-all text-sm"
+                  >
+                    <option value="">اختر اللون</option>
+                    <option <% if(badge.color === "bg-red-100 text-red-700") {%> selected <%}%> value="bg-red-100 text-red-700">أحمر فاتح</option>
+                    <option <% if(badge.color === "bg-green-100 text-green-700") {%> selected <%}%> value="bg-green-100 text-green-700">أخضر فاتح</option>
+                    <option <% if(badge.color === "bg-blue-100 text-blue-700") {%> selected <%}%> value="bg-blue-100 text-blue-700">أزرق فاتح</option>
+                    <option <% if(badge.color === "bg-yellow-100 text-yellow-700") {%> selected <%}%> value="bg-yellow-100 text-yellow-700">أصفر فاتح</option>
+                    <option <% if(badge.color === "bg-indigo-100 text-indigo-700") {%> selected <%}%> value="bg-indigo-100 text-indigo-700">بنفسجي فاتح</option>
+                    <option <% if(badge.color === "bg-pink-100 text-pink-700") {%> selected <%}%> value="bg-pink-100 text-pink-700">وردي فاتح</option>
+                    <option <% if(badge.color === "bg-gray-200 text-gray-800") {%> selected <%}%> value="bg-gray-200 text-gray-800">
+                      رمادي فاتح
+                    </option>
+                    <option <% if(badge.color === "bg-red-500 text-white") {%> selected <%}%> value="bg-red-500 text-white">أحمر غامق</option>
+                    <option <% if(badge.color === "bg-green-500 text-white") {%> selected <%}%> value="bg-green-500 text-white">أخضر غامق</option>
+                    <option <% if(badge.color === "bg-blue-500 text-white") {%> selected <%}%> value="bg-blue-500 text-white">أزرق غامق</option>
+                  </select>
                 </div>
-
-                <div>
-                    <label for="product-description" class="block text-sm font-medium text-gray-700 mb-1">وصف المنتج</label>
-                    <textarea name="product-description" id="product-description" rows="4" required
-                              class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">وصف قصير جذاب للمنتج يبرز أهم مميزاته وتصميمه الفريد. (مثال)</textarea>
+                <div class="sm:col-span-2 flex justify-end">
+                    <button type="button" class="remove-badge-button text-red-500 hover:text-red-700 transition-colors" title="إزالة الشارة">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
                 </div>
-
-                <div>
-                    <label for="product-image-url" class="block text-sm font-medium text-gray-700 mb-1">رابط صورة المنتج</label>
-                    <input type="url" name="product-image-url" id="product-image-url" value="https://i.imgur.com/U16c58j.jpeg"
-                           class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
                 </div>
+                
+              </div>
+            </div>
 
-                <!-- Badges Section Start -->
-                <div class="border-t border-b border-gray-200 py-6 space-y-4">
-                    <div class="flex justify-between items-center">
-                        <h3 class="text-lg font-medium leading-6 text-gray-900">الشارات (اختياري)</h3>
-                        <button type="button" id="addBadgeButton"
-                                class="bg-sky-500 hover:bg-sky-600 text-white text-sm font-semibold py-2 px-3 rounded-lg shadow-md transition-colors">
-                            <i class="fas fa-plus mr-1"></i> إضافة شارة
+            
+            
+            <% }) %>
+
+            
+                      <div class="flex justify-between items-center pt-4">
+                        <button
+                          type="button"
+                          onclick="confirmDelete()"
+                          class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75"
+                        >
+                          <i class="fas fa-trash-alt mr-2"></i> حذف المنتج
                         </button>
-                    </div>
-
-                    <div id="badgesContainer" class="space-y-4">
-                        <!-- Badge Input Template (سيتم استنساخه بواسطة JS) -->
-                        <!-- سيبقى هذا الحقل الأول ظاهرًا دائمًا أو يتم إنشاؤه مبدئيًا -->
-                        <div class="badge-item grid grid-cols-1 sm:grid-cols-12 gap-x-4 gap-y-2 items-center p-3 border border-gray-200 rounded-lg bg-gray-50">
-                            <div class="sm:col-span-5">
-                                <label for="product-badge-text-0" class="sr-only">نص الشارة</label>
-                                <input type="text" name="badges[0][text]" id="product-badge-text-0" placeholder="نص الشارة (مثال: جديد)"
-                                       class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 transition-all text-sm">
-                            </div>
-                            <div class="sm:col-span-5">
-                                <label for="product-badge-color-0" class="sr-only">لون الشارة</label>
-                                <select name="badges[0][color]" id="product-badge-color-0"
-                                        class="block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 transition-all text-sm">
-                                    <option value="">اختر اللون</option>
-                                    <option value="bg-red-100 text-red-700">أحمر فاتح</option>
-                                    <option value="bg-green-100 text-green-700">أخضر فاتح</option>
-                                    <option value="bg-blue-100 text-blue-700">أزرق فاتح</option>
-                                    <option value="bg-yellow-100 text-yellow-700">أصفر فاتح</option>
-                                    <option value="bg-indigo-100 text-indigo-700">بنفسجي فاتح</option>
-                                    <option value="bg-pink-100 text-pink-700">وردي فاتح</option>
-                                    <option value="bg-gray-200 text-gray-800">رمادي فاتح</option>
-                                    <option value="bg-red-500 text-white">أحمر غامق</option>
-                                    <option value="bg-green-500 text-white">أخضر غامق</option>
-                                    <option value="bg-blue-500 text-white">أزرق غامق</option>
-                                </select>
-                            </div>
-                            <div class="sm:col-span-2 flex justify-end">
-                                <!-- زر الحذف سيضاف بواسطة JS للشارات الإضافية -->
-                            </div>
-                        </div>
-                    </div>
+                        <button
+                          type="submit"
+                          class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+                        >
+                          <i class="fas fa-save mr-2"></i> حفظ التعديلات
+                        </button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
-                <!-- Badges Section End -->
-
-                <div class="flex justify-between items-center pt-4">
-                     <button type="button" onclick="confirmDelete()"
-                            class="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-75">
-                        <i class="fas fa-trash-alt mr-2"></i> حذف المنتج
-                    </button>
-                    <button type="submit"
-                            class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                        <i class="fas fa-save mr-2"></i> حفظ التعديلات
-                    </button>
-                </div>
-            </form>
         </div>
-    </div>
+
+          <!-- Badges Section End -->
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white text-center p-6 mt-12 fixed bottom-0 w-full">
-        <p>© 2023 متجر المنتجات. جميع الحقوق محفوظة.</p>
+    <footer
+      class="bg-gray-800 text-white text-center p-6 mt-12 fixed bottom-0 w-full"
+    >
+      <p>© 2023 متجر المنتجات. جميع الحقوق محفوظة.</p>
     </footer>
 
     <script>
-        function confirmDelete() {
-            if (confirm("هل أنت متأكد أنك تريد حذف هذا المنتج؟ هذا الإجراء لا يمكن التراجع عنه.")) {
-                alert("تم حذف المنتج (هذه رسالة تجريبية).");
-                // window.location.href = "index.html";
-            }
+
+        const removeBadgeButtons = document.querySelectorAll(
+          ".remove-badge-button"
+        );
+
+        removeBadgeButtons.forEach((button) => {
+            button.addEventListener("click" , () => {
+                const badgeItem = button.closest(".badge-item");
+                if(badgeItem) badgeItem.remove(); 
+            })
+        })
+
+      function confirmDelete() {
+        if (
+          confirm(
+            "هل أنت متأكد أنك تريد حذف هذا المنتج؟ هذا الإجراء لا يمكن التراجع عنه."
+          )
+        ) {
+          alert("تم حذف المنتج (هذه رسالة تجريبية).");
+          // window.location.href = "index.html";
         }
+      }
     </script>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const addBadgeButton = document.getElementById('addBadgeButton');
-        const badgesContainer = document.getElementById('badgesContainer');
+      document.addEventListener("DOMContentLoaded", function () {
+        const addBadgeButton = document.getElementById("addBadgeButton");
+        const badgesContainer = document.getElementById("badgesContainer");
         let badgeIndex = 1; // Start index for new badges, 0 is the initial one
 
         // Function to create badge color options
         function createBadgeColorOptions() {
-            const colors = [
-                { value: "", text: "اختر اللون" },
-                { value: "bg-red-100 text-red-700", text: "أحمر فاتح" },
-                { value: "bg-green-100 text-green-700", text: "أخضر فاتح" },
-                { value: "bg-blue-100 text-blue-700", text: "أزرق فاتح" },
-                { value: "bg-yellow-100 text-yellow-700", text: "أصفر فاتح" },
-                { value: "bg-indigo-100 text-indigo-700", text: "بنفسجي فاتح" },
-                { value: "bg-pink-100 text-pink-700", text: "وردي فاتح" },
-                { value: "bg-gray-200 text-gray-800", text: "رمادي فاتح" },
-                { value: "bg-red-500 text-white", text: "أحمر غامق" },
-                { value: "bg-green-500 text-white", text: "أخضر غامق" },
-                { value: "bg-blue-500 text-white", text: "أزرق غامق" }
-            ];
-            let optionsHtml = '';
-            colors.forEach(color => {
-                optionsHtml += `<option value="${color.value}">${color.text}</option>`;
-            });
-            return optionsHtml;
+          const colors = [
+            { value: "", text: "اختر اللون" },
+            { value: "bg-red-100 text-red-700", text: "أحمر فاتح" },
+            { value: "bg-green-100 text-green-700", text: "أخضر فاتح" },
+            { value: "bg-blue-100 text-blue-700", text: "أزرق فاتح" },
+            { value: "bg-yellow-100 text-yellow-700", text: "أصفر فاتح" },
+            { value: "bg-indigo-100 text-indigo-700", text: "بنفسجي فاتح" },
+            { value: "bg-pink-100 text-pink-700", text: "وردي فاتح" },
+            { value: "bg-gray-200 text-gray-800", text: "رمادي فاتح" },
+            { value: "bg-red-500 text-white", text: "أحمر غامق" },
+            { value: "bg-green-500 text-white", text: "أخضر غامق" },
+            { value: "bg-blue-500 text-white", text: "أزرق غامق" },
+          ];
+          let optionsHtml = "";
+          colors.forEach((color) => {
+            optionsHtml += `<option value="${color.value}">${color.text}</option>`;
+          });
+          return optionsHtml;
         }
-        
+
         const badgeColorOptions = createBadgeColorOptions();
 
-        addBadgeButton.addEventListener('click', function () {
-            const newBadgeItem = document.createElement('div');
-            newBadgeItem.className = 'badge-item grid grid-cols-1 sm:grid-cols-12 gap-x-4 gap-y-2 items-center p-3 border border-gray-200 rounded-lg bg-gray-50 mt-2'; // Added mt-2 for spacing
+        addBadgeButton.addEventListener("click", function () {
+          const newBadgeItem = document.createElement("div");
+          newBadgeItem.className =
+            "badge-item grid grid-cols-1 sm:grid-cols-12 gap-x-4 gap-y-2 items-center p-3 border border-gray-200 rounded-lg bg-gray-50 mt-2"; // Added mt-2 for spacing
 
-            newBadgeItem.innerHTML = `
+          newBadgeItem.innerHTML = `
                 <div class="sm:col-span-5">
                     <label for="product-badge-text-${badgeIndex}" class="sr-only">نص الشارة</label>
                     <input type="text" name="badges[${badgeIndex}][text]" id="product-badge-text-${badgeIndex}" placeholder="نص الشارة"
@@ -185,28 +294,31 @@
                     </button>
                 </div>
             `;
-            badgesContainer.appendChild(newBadgeItem);
+          badgesContainer.appendChild(newBadgeItem);
 
-            // Add event listener to the new remove button
-            newBadgeItem.querySelector('.remove-badge-button').addEventListener('click', function() {
-                newBadgeItem.remove();
-                // Optional: re-index badges if needed, but backend can handle array of objects
+          // Add event listener to the new remove button
+          newBadgeItem
+            .querySelector(".remove-badge-button")
+            .addEventListener("click", function () {
+              newBadgeItem.remove();
+              // Optional: re-index badges if needed, but backend can handle array of objects
             });
 
-            badgeIndex++;
+          badgeIndex++;
         });
 
         // For pre-filled badges in edit page (needs backend data)
         // This is a conceptual example, you'll need to adapt it
         function addPreFilledBadge(textValue, colorValue) {
-            const newBadgeItem = document.createElement('div');
-            newBadgeItem.className = 'badge-item grid grid-cols-1 sm:grid-cols-12 gap-x-4 gap-y-2 items-center p-3 border border-gray-200 rounded-lg bg-gray-50 mt-2';
+          const newBadgeItem = document.createElement("div");
+          newBadgeItem.className =
+            "badge-item grid grid-cols-1 sm:grid-cols-12 gap-x-4 gap-y-2 items-center p-3 border border-gray-200 rounded-lg bg-gray-50 mt-2";
 
-            // Find the initial text input and color select to use their IDs and names as a template.
-            // Or, if the first one is always present, use its structure.
-            // For simplicity, I'll use badgeIndex here, assuming it's correctly managed if edit page starts with existing badges.
+          // Find the initial text input and color select to use their IDs and names as a template.
+          // Or, if the first one is always present, use its structure.
+          // For simplicity, I'll use badgeIndex here, assuming it's correctly managed if edit page starts with existing badges.
 
-            newBadgeItem.innerHTML = `
+          newBadgeItem.innerHTML = `
                 <div class="sm:col-span-5">
                     <label for="product-badge-text-${badgeIndex}" class="sr-only">نص الشارة</label>
                     <input type="text" name="badges[${badgeIndex}][text]" id="product-badge-text-${badgeIndex}" placeholder="نص الشارة"
@@ -226,62 +338,67 @@
                     </button>
                 </div>
             `;
-            
-            const selectElement = newBadgeItem.querySelector(`#product-badge-color-${badgeIndex}`);
-            selectElement.value = colorValue; // Set the selected color
 
-            badgesContainer.appendChild(newBadgeItem);
+          const selectElement = newBadgeItem.querySelector(
+            `#product-badge-color-${badgeIndex}`
+          );
+          selectElement.value = colorValue; // Set the selected color
 
-            newBadgeItem.querySelector('.remove-badge-button').addEventListener('click', function() {
-                newBadgeItem.remove();
+          badgesContainer.appendChild(newBadgeItem);
+
+          newBadgeItem
+            .querySelector(".remove-badge-button")
+            .addEventListener("click", function () {
+              newBadgeItem.remove();
             });
-            badgeIndex++;
+          badgeIndex++;
         }
 
         // --- For edit-product.html: Load existing badges ---
         // You would call addPreFilledBadge for each existing badge from your backend
         // Example:
-        if (document.title.includes("تعديل المنتج")) { // Simple check for edit page
-            // Clear the initial badge if you are loading from data, or adapt the first one
-            const initialBadge = badgesContainer.querySelector('.badge-item');
-            let hasInitialData = false; // Flag to see if we should remove the template
+        if (document.title.includes("تعديل المنتج")) {
+          // Simple check for edit page
+          // Clear the initial badge if you are loading from data, or adapt the first one
+          const initialBadge = badgesContainer.querySelector(".badge-item");
+          let hasInitialData = false; // Flag to see if we should remove the template
 
-            // This is where you'd loop through your product's existing badges
-            // const existingBadges = [ { text: "كمية محدودة", color: "bg-red-100 text-red-700" }, { text: "جديد", color: "bg-green-100 text-green-700" } ]; // Example data
-            
-            // If you have existingBadges from backend:
-            // if (existingBadges && existingBadges.length > 0) {
-            //    hasInitialData = true;
-            //    if(initialBadge) initialBadge.remove(); // Remove the static one
-            //    badgeIndex = 0; // Reset index for pre-filled
-            //    existingBadges.forEach(badge => {
-            //        addPreFilledBadge(badge.text, badge.color);
-            //    });
-            // }
+          // This is where you'd loop through your product's existing badges
+          // const existingBadges = [ { text: "كمية محدودة", color: "bg-red-100 text-red-700" }, { text: "جديد", color: "bg-green-100 text-green-700" } ]; // Example data
 
-            // If you want to keep the first static badge and just prefill it if data exists:
-            const firstBadgeText = initialBadge.querySelector('input[type="text"]');
-            const firstBadgeColor = initialBadge.querySelector('select');
-            // if (existingBadges && existingBadges.length > 0) {
-            //    firstBadgeText.value = existingBadges[0].text;
-            //    firstBadgeColor.value = existingBadges[0].color;
-            //    if(existingBadges.length > 1){
-            //        for(let i=1; i < existingBadges.length; i++){
-            //            addPreFilledBadge(existingBadges[i].text, existingBadges[i].color);
-            //        }
-            //    }
-            // } else if (!firstBadgeText.value && !firstBadgeColor.value) {
-                // If no existing badges and the first one is empty, don't add a remove button to it yet
-            // } else {
-                // If the first static badge has content (e.g. from a previous non-JS version), add a remove button if it makes sense
-                // For simplicity, the first badge won't have a remove button initially here
-            // }
+          // If you have existingBadges from backend:
+          // if (existingBadges && existingBadges.length > 0) {
+          //    hasInitialData = true;
+          //    if(initialBadge) initialBadge.remove(); // Remove the static one
+          //    badgeIndex = 0; // Reset index for pre-filled
+          //    existingBadges.forEach(badge => {
+          //        addPreFilledBadge(badge.text, badge.color);
+          //    });
+          // }
 
-            // Simplified for now: The first badge always exists. New ones get a remove button.
-            // You'll need to adjust the logic for pre-filling and handling the first badge on the edit page.
+          // If you want to keep the first static badge and just prefill it if data exists:
+          const firstBadgeText =
+            initialBadge.querySelector('input[type="text"]');
+          const firstBadgeColor = initialBadge.querySelector("select");
+          // if (existingBadges && existingBadges.length > 0) {
+          //    firstBadgeText.value = existingBadges[0].text;
+          //    firstBadgeColor.value = existingBadges[0].color;
+          //    if(existingBadges.length > 1){
+          //        for(let i=1; i < existingBadges.length; i++){
+          //            addPreFilledBadge(existingBadges[i].text, existingBadges[i].color);
+          //        }
+          //    }
+          // } else if (!firstBadgeText.value && !firstBadgeColor.value) {
+          // If no existing badges and the first one is empty, don't add a remove button to it yet
+          // } else {
+          // If the first static badge has content (e.g. from a previous non-JS version), add a remove button if it makes sense
+          // For simplicity, the first badge won't have a remove button initially here
+          // }
+
+          // Simplified for now: The first badge always exists. New ones get a remove button.
+          // You'll need to adjust the logic for pre-filling and handling the first badge on the edit page.
         }
-    });
-</script>
-
-</body>
+      });
+    </script>
+  </body>
 </html>
